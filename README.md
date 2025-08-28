@@ -46,6 +46,80 @@ docker run -p 127.0.0.1:8000:8000 myapp:1
 
 
 # docker-docs
-this is anoter branch craeted
+this is anoter branch craeted 
+git add .
 
- another-branch
+#Git Branching & Conflict Resolution Guide
+To create branches, push them to GitHub, merge into `main`, and resolve conflicts.
+
+---
+
+## Create a New Branch
+A branch let us work on a feature or fix without affecting the `main` branch.
+
+```bash
+# Create and switch to a new branch
+git checkout -b new-branch-name
+
+Make Changes and Commit
+After editing files, stage and commit changes:
+# Stage all changes
+git add .
+
+# Commit with a message
+git commit -m "Added new feature"
+
+
+Push Branch to Remote
+
+Push your local branch to GitHub:
+
+git push -u origin new-branch-name
+
+Switching Branches
+
+To move between branches:
+git checkout main              # Switch to main
+git checkout new-branch-name   # Switch back to your branch
+
+Merging a Branch into Main
+
+# Go to main
+git checkout main
+
+# Pull latest updates
+git pull origin main
+
+# Merge your branch
+git merge new-branch-name
+
+Handling Merge Conflicts
+
+If both branches edited the same lines in a file, Git cannot merge automatically.
+The file will look like this:
+
+<<<<<<< HEAD
+code from main branch
+=======
+code from new-branch-name
+>>>>>>> new-branch-name
+
+Conflict Markers
+
+<<<<<<< HEAD → current branch (main) changes
+
+======= → separator
+
+>>>>>>> new-branch-name → incoming branch changes
+
+Remove conflict markers (<<<<<<<, =======, >>>>>>>).
+
+Mark as resolved
+
+
+git add filename
+git commit
+
+Push to main branch
+
+git push origin main
